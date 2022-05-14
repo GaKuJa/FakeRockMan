@@ -102,6 +102,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbf354d2b802bd74999a805e2424b919, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  verticalSpeed: 100
-  horizontalSpeed: 600
-  forceParameter: 2
+  verticalSpeed: 200
+  horizontalSpeed: 400
