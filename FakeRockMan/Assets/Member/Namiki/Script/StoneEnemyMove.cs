@@ -2,33 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StoneThrowingMove : MonoBehaviour
+public class StoneEnemyMove : MonoBehaviour
 {
-    // êŒÇÃë¨ìx
+    // ìGÇÃë¨ìx
     [SerializeField]
-    float speed = 100f;
+    private float speed = 100f;
     void Start()
     {
-        StartCoroutine("Stonethrowing");
+        StartCoroutine("Move");
     }
 
-    // Update is called once per frame
-    #region ìäù±
-    IEnumerator Stonethrowing()
+    #region à⁄ìÆ
+    IEnumerator Move()
     {
         while (true)
         {
             var RockTransform = GetComponent<RectTransform>();
             var localPosition = RockTransform.localPosition;
 
-            localPosition.x = Mathf.Clamp(localPosition.x -= speed * Time.deltaTime, -1060, 1060f);
+            localPosition.y = Mathf.Clamp(localPosition.y -= speed * Time.deltaTime, -420, 420);
 
             RockTransform.localPosition = localPosition;
 
-            if (RockTransform.localPosition.x <= -1060f)
+            if (Mathf.Abs(localPosition.y) > 390)
             {
-                Destroy(this.gameObject);
+                speed *= -1;
             }
+
             yield return null;
         }
     }

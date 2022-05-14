@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StoneThrowingMove : MonoBehaviour
+public class GoldThrowingMove : MonoBehaviour
 {
-    // êŒÇÃë¨ìx
+    // ã‡ÇÃë¨ìx
     [SerializeField]
-    float speed = 100f;
+    float verticalSpeed = 100f;
+    [SerializeField]
+    float horizontalSpeed = 100f;
     void Start()
     {
         StartCoroutine("Stonethrowing");
@@ -21,7 +23,9 @@ public class StoneThrowingMove : MonoBehaviour
             var RockTransform = GetComponent<RectTransform>();
             var localPosition = RockTransform.localPosition;
 
-            localPosition.x = Mathf.Clamp(localPosition.x -= speed * Time.deltaTime, -1060, 1060f);
+            localPosition.x = Mathf.Clamp(localPosition.x -= horizontalSpeed * Time.deltaTime, -1060, 1060f);
+
+            localPosition.y = Mathf.Clamp(localPosition.y += verticalSpeed * Time.deltaTime, -400, 400);
 
             RockTransform.localPosition = localPosition;
 
