@@ -40,13 +40,13 @@ public class Player : MonoBehaviour
             //Ž€–Sˆ—
             gameObject.SetActive(false);
         }
-        if(Input.GetKey(KeyCode.A))
+        if(Input.GetKey(KeyCode.A)&&rigidbody2D.velocity.x>=-5&& rigidbody2D.velocity.x <= 5)
         {
             R = false;
             rigidbody2D.AddForce(new Vector2(-horizontal, 0));
             spriteRenderer.flipX=true;
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) && (rigidbody2D.velocity.x >= -5 && rigidbody2D.velocity.x <= 5))
         {
             R = true;
             rigidbody2D.AddForce(new Vector2(horizontal, 0));
