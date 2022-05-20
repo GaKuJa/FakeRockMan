@@ -14,7 +14,8 @@ public class Player : MonoBehaviour
     float horizontal = 10f;
     [SerializeField, Header("")]
     float Verttical = 10f;
-
+    [SerializeField]
+    float AtkVec=100f;
     bool _AtkTimer = true;
     //トリガー左
     //トリガー右
@@ -63,14 +64,14 @@ public class Player : MonoBehaviour
             _AtkTimer = false;
             if(R)
             {
-                var obj = Instantiate(gameobj,new Vector3(transform.position.x+0.25f,transform.position.y,transform.position.y),Quaternion.identity);
-                obj.GetComponent<Rigidbody2D>().AddForce(new Vector3(1000, 0, 0));
+                var obj = Instantiate(gameobj,new Vector3(transform.position.x+0.25f,transform.position.y,transform.position.z),Quaternion.identity);
+                obj.GetComponent<Rigidbody2D>().AddForce(new Vector3(AtkVec, 0, 0));
                 StartCoroutine(AtkTimer(obj));
 
             }else
             {
-                var obj = Instantiate(gameobj, new Vector3(transform.position.x - 0.25f, transform.position.y, transform.position.y), Quaternion.identity);
-                obj.GetComponent<Rigidbody2D>().AddForce(new Vector3(-1000, 0, 0));
+               var obj = Instantiate(gameobj, new Vector3(transform.position.x - 0.25f, transform.position.y, transform.position.z), Quaternion.identity);
+                obj.GetComponent<Rigidbody2D>().AddForce(new Vector3(-AtkVec, 0, 0));
                 StartCoroutine(AtkTimer(obj));
             }
         }
