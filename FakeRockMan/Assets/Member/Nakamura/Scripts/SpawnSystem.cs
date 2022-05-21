@@ -28,6 +28,7 @@ public class SpawnSystem : MonoBehaviour
             {
                 _gameObject.SetActive(true);
                 _gameObject.transform.position = Vector2.MoveTowards(_pos.transform.position, _pos.transform.position, 0);
+                Spawnflag=false;
             }
         }
 
