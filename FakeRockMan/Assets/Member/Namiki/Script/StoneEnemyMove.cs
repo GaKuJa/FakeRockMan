@@ -17,7 +17,7 @@ public class StoneEnemyMove : MonoBehaviour
     {
         while (true)
         {
-            var RockTransform = GetComponent<RectTransform>();
+            var RockTransform = GetComponent<Transform>();
             var localPosition = RockTransform.localPosition;
 
             localPosition.y = Mathf.Clamp(localPosition.y -= speed * Time.deltaTime, -420, 420);
